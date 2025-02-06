@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Feedback</title>
+    <style>
+        label {
+            float: left;
+            width: 150px;
+        }
+        #container {
+            width: 90%;
+            margin: auto;
+            background-color: beige;
+			padding: 20px;
+        }
+
+		#resultTable {
+    		margin-top: 20px;
+    		text-align: center; 
+}
+        main {
+            padding: 50px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .character-counter {
+            font-size: 12px;
+            color: gray;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+			background-color: white;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <main>
+        <h2>Feedback</h2>
+        <h3>Love something? Hate something? Let us know!</h3>
+        Note : Fields marked with an asterisk(*) are mandatory
+        <br><br>
+        <form id="feedbackForm" novalidate>
+            <label>Title*:</label>
+            <input type="radio" name="title" value="Miss" required>Miss
+            <input type="radio" name="title" value="Mr" required>Mr.
+            <input type="radio" name="title" value="Mrs" required>Mrs.
+            <span id="titleError" class="error"></span>
+            <br><br>
+
+            <label for="firstName">First Name*:</label>
+            <input type="text" id="firstName" name="firstName" required minlength="2" maxlength="50">
+            <span id="firstNameError" class="error"></span>
+            <br><br>
+
+            <label for="lastName">Last Name*:</label>
+            <input type="text" id="lastName" name="lastName" required minlength="2" maxlength="50">
+            <span id="lastNameError" class="error"></span>
+            <br><br>
+
+            <label for="emailId">Email Id*:</label>
+            <input type="email" id="emailId" name="emailId" placeholder="yourname@northeastern.edu" required pattern="^[a-zA-Z0-9._%+-]+@northeastern\.edu$">
+            <span id="emailError" class="error"></span>
+            <br><br>
+
+            <label for="phoneNumber">Phone Number*:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="(XXX) XXX-XXXX" required>
+            <span id="phoneError" class="error"></span>
+            <br><br>
+
+            <label for="zipcode">ZipCode*:</label>
+            <input type="text" id="zipcode" name="zipcode" required pattern="^\d{5}$">
+            <span id="zipcodeError" class="error"></span>
+            <br><br>
+
+            <label for="streetAddress1">Street Address 1*:</label>
+            <input type="text" id="streetAddress1" name="streetAddress1" required>
+            <span id="streetAddress1Error" class="error"></span>
+            <br><br>
+
+            <label for="streetAddress2">Street Address 2:</label>
+            <input type="text" id="streetAddress2" name="streetAddress2" maxlength="20">
+            <span id="streetAddress2Counter" class="character-counter">0/20 characters used</span>
+            <br><br>
+
+            <label>Drinks*:</label>
+            <select id="drinkSelect" name="drink">
+                <option value="Hot Black Tea">Hot Black Tea</option>
+                <option value="Green Tea">Green Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Smoothie">Smoothie</option>
+                <option value="Soda">Soda</option>
+            </select>
+            <div id="dynamicCheckbox"></div>
+            <br><br>
+
+            <label for="comments">Comments*:</label>
+            <textarea id="comments" name="comments" required minlength="10"></textarea>
+            <span id="commentsError" class="error"></span>
+            <br><br>
+
+            <button type="submit" id="submitButton" disabled>Submit</button>
+            <button type="reset" id="resetButton">Reset</button>
+        </form>
+
+        <div id="resultTable"></div>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
